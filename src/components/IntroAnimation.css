@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.cinematic-intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+/* Base Text Styles */
+.intro-text-wrapper h1 {
+  font-family: 'Bebas Neue', 'Impact', sans-serif;
+  font-size: clamp(60px, 12vw, 140px);
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  line-height: 0.9;
+  text-align: center;
+  margin: 0;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+/* Phase 2: Explosion Text */
+.explosion-text {
+  animation: explosionEntry 1.5s ease-out forwards;
+}
+
+@keyframes explosionEntry {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+    filter: blur(20px) brightness(3);
+  }
+
+  30% {
+    opacity: 1;
+    transform: scale(1.3);
+    filter: blur(5px) brightness(2.5);
+  }
+
+  60% {
+    transform: scale(1.1);
+    filter: blur(2px) brightness(2);
+  }
+
+  100% {
+    transform: scale(1);
+    filter: blur(0) brightness(1.5);
+    text-shadow: 0 0 40px rgba(255, 140, 0, 0.8), 0 0 20px #ff0000;
+  }
+}
+
+/* Phase 3: Fire Text */
+.fire-text {
+  background: linear-gradient(to bottom,
+      #ff4500 0%,
+      #ff8c00 30%,
+      #ffd700 50%,
+      #ff6347 70%,
+      #8b0000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  text-shadow:
+    0 0 20px rgba(255, 69, 0, 0.8),
+    0 0 40px rgba(255, 140, 0, 0.6),
+    0 0 60px rgba(255, 215, 0, 0.4),
+    0 0 80px rgba(255, 99, 71, 0.3);
+
+  background-size: 100% 200%;
+  animation: fireGradient 2s ease-in-out infinite;
+}
+
+@keyframes fireGradient {
+
+  0%,
+  100% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: 0% 100%;
+  }
+}
+
+/* Phase 4: Golden Text */
+.golden-text {
+  background: linear-gradient(135deg,
+      #ffd700 0%,
+      #ffed4e 25%,
+      #ff8c00 50%,
+      #ffd700 75%,
+      #ffed4e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: shimmer 2s ease-in-out infinite;
+
+  text-shadow:
+    0 0 20px rgba(255, 215, 0, 0.4),
+    0 0 40px rgba(255, 215, 0, 0.2);
+}
+
+@keyframes shimmer {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Phase 5: Fade Out */
+.fade-out-text {
+  animation: textFadeOut 0.5s ease-in forwards;
+}
+
+@keyframes textFadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.1);
+    filter: blur(10px);
+  }
+}
+
+.cinematic-intro.phase-5 {
+  animation: containerFadeOut 0.5s ease-in forwards;
+}
+
+@keyframes containerFadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* --- Particle System --- */
+.particles-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform, opacity;
+}
+
+/* Explosion Particles */
+.particle.explosion {
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  animation: explode var(--duration) cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes explode {
+  0% {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(var(--distance)) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Ember Particles */
+.particle.ember {
+  bottom: 0;
+  background: radial-gradient(circle, #ff6347, #8b0000);
+  box-shadow: 0 0 10px #ff4500;
+  animation: floatEmber linear infinite;
+  opacity: 0;
+}
+
+@keyframes floatEmber {
+  0% {
+    transform: translateY(10vh) translateX(0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateY(-80vh) translateX(calc(-50px + 100px * var(--drift, 0.5)));
+    opacity: 0;
+  }
+}
+
+/* --- Golden Rings --- */
+.orbit-rings-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-style: preserve-3d;
+  width: 0;
+  height: 0;
+  z-index: -2;
+}
+
+.orbit-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 4px solid transparent;
+  border-radius: 50%;
+  box-shadow:
+    0 0 15px rgba(255, 215, 0, 0.8),
+    inset 0 0 15px rgba(255, 215, 0, 0.8);
+  animation: orbit linear infinite;
+}
+
+.ring-1 {
+  width: 800px;
+  height: 800px;
+  margin-top: -400px;
+  margin-left: -400px;
+  animation-duration: 3s;
+  transform: rotateX(60deg) rotateY(0deg);
+}
+
+.ring-2 {
+  width: 900px;
+  height: 900px;
+  margin-top: -450px;
+  margin-left: -450px;
+  animation-duration: 4.5s;
+  animation-direction: reverse;
+  transform: rotateX(65deg) rotateY(45deg);
+  border-color: rgba(255, 140, 0, 0.2);
+}
+
+.ring-3 {
+  width: 600px;
+  height: 600px;
+  margin-top: -300px;
+  margin-left: -300px;
+  animation-duration: 4s;
+  transform: rotateX(75deg) rotateY(-30deg);
+}
+
+@keyframes orbit {
+  0% {
+    transform: rotateX(70deg) rotateZ(0deg);
+  }
+
+  100% {
+    transform: rotateX(70deg) rotateZ(360deg);
+  }
+}
+
+/* --- Skip Button --- */
+.skip-intro-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 10000;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.skip-intro-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(5px);
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .intro-text-wrapper h1 {
+    font-size: clamp(40px, 10vw, 80px);
+    letter-spacing: 0.05em;
+  }
+
+  .skip-intro-btn {
+    bottom: 20px;
+    right: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  /* Scale down rings for mobile */
+  .ring-1 {
+    width: 400px;
+    height: 400px;
+    margin-top: -200px;
+    margin-left: -200px;
+  }
+
+  .ring-2 {
+    width: 450px;
+    height: 450px;
+    margin-top: -225px;
+    margin-left: -225px;
+  }
+
+  .ring-3 {
+    width: 300px;
+    height: 300px;
+    margin-top: -150px;
+    margin-left: -150px;
+  }
+
+  /* Reduce particles for performance */
+  .particle.explosion:nth-child(even) {
+    display: none;
+  }
+}
