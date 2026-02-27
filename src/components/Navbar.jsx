@@ -21,6 +21,9 @@ const Navbar = () => {
         <header className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
             <div className="nav-container container">
                 <a href="#home" className="logo">
+                    {/* Replace with actual profile photo */}
+                    <div className="nav-profile-placeholder">H</div>
+                    {/* <img src="your-image.jpg" alt="Profile" className="nav-profile-pic" /> */}
                     <span className="logo-text">Haneesh</span>
                 </a>
 
@@ -58,6 +61,12 @@ const Navbar = () => {
 
             {/* Mobile Drawer */}
             <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
+                <div className="mobile-header">
+                    {/* Replace with actual profile photo */}
+                    <div className="nav-profile-placeholder mobile">H</div>
+                    {/* <img src="your-image.jpg" alt="Profile" className="nav-profile-pic mobile" /> */}
+                    <span className="logo-text mobile-logo">Haneesh</span>
+                </div>
                 <ul className="mobile-links">
                     {navLinks.map((link) => (
                         <li key={link}>

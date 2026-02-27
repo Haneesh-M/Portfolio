@@ -136,8 +136,10 @@
 
 .hero-cta {
     display: flex;
-    gap: 1.5rem;
-    margin-top: 1rem;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 80px;
 }
 
 .scroll-indicator {
@@ -219,6 +221,8 @@
         flex-direction: column;
         width: 100%;
         max-width: 300px;
+        margin-bottom: 60px;
+        gap: 16px;
     }
 
     .profile-img-container {

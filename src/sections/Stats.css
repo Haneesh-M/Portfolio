@@ -1,9 +1,15 @@
 .stats-section {
-    padding: 0 2rem 4rem 2rem;
-    margin-top: -3rem;
-    /* overlap hero slightly */
+    padding: 60px 20px;
+    margin-top: 80px;
     position: relative;
     z-index: 10;
+}
+
+@media (max-width: 768px) {
+    .stats-section {
+        margin-top: 60px;
+        padding: 40px 20px;
+    }
 }
 
 .stats-grid {

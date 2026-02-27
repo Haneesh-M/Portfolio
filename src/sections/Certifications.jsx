@@ -3,11 +3,36 @@ import './Certifications.css';
 
 const Certifications = () => {
     const certs = [
-        { title: "Machine Learning", issuer: "Coursera", icon: "🤖" },
-        { title: "Supervised Machine Learning", issuer: "Coursera", icon: "📈" },
-        { title: "Unsupervised Machine Learning", issuer: "Coursera", icon: "🔍" },
-        { title: "Full Stack (MERN)", issuer: "SmartInternz", icon: "🌐" },
-        { title: "Web Development Bootcamp", issuer: "Udemy", icon: "💻" }
+        {
+            title: "Machine Learning",
+            issuer: "Coursera",
+            icon: "🤖",
+            url: "" // Add your certificate URL here
+        },
+        {
+            title: "Supervised Machine Learning",
+            issuer: "Coursera",
+            icon: "📈",
+            url: "" // Add your certificate URL here
+        },
+        {
+            title: "Unsupervised Machine Learning",
+            issuer: "Coursera",
+            icon: "🔍",
+            url: "" // Add your certificate URL here
+        },
+        {
+            title: "Full Stack (MERN)",
+            issuer: "SmartInternz",
+            icon: "🌐",
+            url: "https://drive.google.com/file/d/1_Umz2sUMcO6CkfZQli4825balUtjHgia/view?usp=sharing" // Add your certificate URL here
+        },
+        {
+            title: "Web Development Bootcamp",
+            issuer: "Udemy",
+            icon: "💻",
+            url: "" // Add your certificate URL here
+        }
     ];
 
     return (
@@ -22,6 +47,15 @@ const Certifications = () => {
                             <div className="cert-info">
                                 <h3 className="cert-title">{cert.title}</h3>
                                 <p className="cert-issuer">{cert.issuer}</p>
+                                {cert.url ? (
+                                    <a href={cert.url} target="_blank" rel="noopener noreferrer" className="cert-btn">
+                                        View Certificate ↗
+                                    </a>
+                                ) : (
+                                    <button className="cert-btn disabled" title="Certificate link coming soon" disabled>
+                                        View Certificate ↗
+                                    </button>
+                                )}
                             </div>
                             <div className="cert-badge">Verified</div>
                         </div>
