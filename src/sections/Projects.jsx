@@ -1,4 +1,11 @@
 import React from 'react';
+import socialMediaImg from '../images/Social-App.png';
+import arvrImg from '../images/ARVR.png';
+import expenseSharingImg from '../images/Expense Sharing.png';
+import taskLedgerImg from '../images/Split Ledger.png';
+import floraDistImg from '../images/Flora Distribution.png';
+import droneImg from '../images/Drone.png';
+import hotelMngmtImg from '../images/Hotel management.png';
 import './Projects.css';
 
 const Projects = () => {
@@ -10,10 +17,10 @@ const Projects = () => {
             description: "Built a two-stage object detection pipeline trained on 5,000-image dataset to identify helmets and improve workplace safety monitoring. Implemented color segmentation, edge detection, and regression-based classification.",
             achievement: "5000+ images trained",
             techStack: ["ML", "OpenCV", "Python", "Streamlit"],
-            image: "helmet-detection-placeholder.jpg", // Placeholder
-            github: "https://github.com/yourusername/helmet-detection",
-            demo: "https://helmet-detection-demo.com",
-            alignment: "left" // Image on left
+            image: "helmet-detection-placeholder.jpg", // Helmet detection still needs an image 
+            github: "https://github.com/Haneesh-M",
+            demo: null,
+            alignment: "left"
         },
         {
             id: 2,
@@ -22,9 +29,9 @@ const Projects = () => {
             description: "Full-stack social media application with core features including user profiles, post creation, likes, comments, and media sharing. Secure JWT-based authentication with real-time interactions and notifications.",
             achievement: "Real-time interactions",
             techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "JWT"],
-            image: "social-media-placeholder.jpg",
-            github: "https://github.com/yourusername/social-media",
-            demo: "https://social-media-demo.com",
+            image: socialMediaImg,
+            github: "https://github.com/Haneesh-M/Social-Media-App",
+            demo: "https://drive.google.com/file/d/1NAJUWKlISWn1HISJHt1iStsJ0IJCkwZ7/view?usp=drive_link",
             alignment: "right" // Image on right
         },
         {
@@ -34,9 +41,9 @@ const Projects = () => {
             description: "MySQL-backed flora distribution system capable of tracking 1000+ records related to plant species, locations, and distribution history. Fully normalized relational schema (up to 3NF) with optimized queries.",
             achievement: "40% faster queries",
             techStack: ["XAMPP", "MySQL", "Database Design"],
-            image: "flora-system-placeholder.jpg",
-            github: "https://github.com/yourusername/flora-system",
-            demo: null, // No live demo
+            image: floraDistImg,
+            github: "https://github.com/Haneesh-M",
+            demo: null,
             alignment: "left"
         },
         {
@@ -46,9 +53,9 @@ const Projects = () => {
             description: "Developed an immersive AR/VR bowling game using Unity and C#, featuring realistic bowling mechanics, lane setup, and interactive gameplay. Physics-based ball and pin interactions with intuitive VR controls.",
             achievement: "Realistic physics simulation",
             techStack: ["Unity", "C#", "VR", "Physics Simulation"],
-            image: "bowling-game-placeholder.jpg",
-            github: "https://github.com/yourusername/vr-bowling",
-            demo: "https://bowling-demo-video.com",
+            image: arvrImg,
+            github: "https://github.com/Haneesh-M",
+            demo: "https://www.youtube.com/shorts/Rg_eR9xKZS4",
             alignment: "right"
         },
         {
@@ -58,10 +65,46 @@ const Projects = () => {
             description: "Python-based drone simulator leveraging graphs and Dijkstra's algorithm for real-time pathfinding in 3D environments. Optimized spatial data structures for autonomous UAV navigation in delivery and search-and-rescue operations.",
             achievement: "Real-time pathfinding",
             techStack: ["Python", "Dijkstra's", "Graph Algorithms", "3D Visualization"],
-            image: "drone-sim-placeholder.jpg",
-            github: "https://github.com/yourusername/drone-simulation",
+            image: droneImg,
+            github: "https://github.com/Haneesh-M",
             demo: null,
             alignment: "left"
+        },
+        {
+            id: 6,
+            title: "Expense Sharing Application",
+            category: "Full Stack",
+            description: "A professional full-stack application designed to manage shared expenses, track group balances, and simplify debt settlements. Features include group management, diverse split strategies, and debt simplification with a React frontend and Node.js backend.",
+            achievement: "ACID-compliant transactions",
+            techStack: ["React.js", "Node.js", "Express.js", "SQLite", "Tailwind CSS"],
+            image: expenseSharingImg,
+            github: "https://github.com/Haneesh-M/Expense-Sharing-Application",
+            demo: "https://drive.google.com/file/d/1pe_KZwUG95lUSGdf7fZLgJS020yAp5Sd/view?usp=drive_link",
+            alignment: "right"
+        },
+        {
+            id: 7,
+            title: "Task Ledger",
+            category: "Full Stack",
+            description: "A productivity and expense intelligence system leveraging a React frontend and Spring Boot backend. Includes 3D interfaces, realtime KPI metrics, Kanban-style tracking, and robust JWT-based security.",
+            achievement: "Real-time analytics & 3D UI",
+            techStack: ["React", "TypeScript", "Spring Boot", "PostgreSQL", "Recharts"],
+            image: taskLedgerImg,
+            github: "https://github.com/Haneesh-M/Task-Ledger",
+            demo: "https://task-ledger485.vercel.app/login",
+            alignment: "left"
+        },
+        {
+            id: 8,
+            title: "Hotel Management System",
+            category: "Frontend Design",
+            description: "Developed a responsive Hotel Management System frontend ensuring smooth booking flow and customer detail management. Focused on a clean UI/UX simulating real-world hotel workflows across various screen sizes.",
+            achievement: "Responsive UI/UX workflows",
+            techStack: ["HTML", "CSS", "JavaScript", "UI/UX Design"],
+            image: hotelMngmtImg,
+            github: "https://github.com/Haneesh-M",
+            demo: null,
+            alignment: "right"
         }
     ];
 
@@ -78,10 +121,13 @@ const Projects = () => {
                         >
                             <div className="project-image-side">
                                 <div className="project-img-wrapper">
-                                    {/* Replace with actual <img> later, using project.image */}
-                                    <div className="project-img-placeholder">
-                                        <span>{project.title.charAt(0)}</span>
-                                    </div>
+                                    {(typeof project.image === 'string' && project.image.includes('placeholder')) || !project.image ? (
+                                        <div className="project-img-placeholder">
+                                            <span>{project.title.charAt(0)}</span>
+                                        </div>
+                                    ) : (
+                                        <img src={project.image} alt={project.title} className="project-img" />
+                                    )}
                                 </div>
                             </div>
 
