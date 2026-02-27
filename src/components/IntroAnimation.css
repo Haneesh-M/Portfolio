@@ -17,15 +17,16 @@
 
 /* Base Text Styles */
 .intro-text-wrapper h1 {
-  font-family: 'Bebas Neue', 'Impact', sans-serif;
-  font-size: clamp(60px, 12vw, 140px);
+  font-family: 'Impact', 'Bebas Neue', 'Arial Black', sans-serif;
+  font-size: clamp(50px, 12vw, 150px);
   font-weight: 900;
-  letter-spacing: 0.1em;
-  line-height: 0.9;
+  letter-spacing: 0.02em;
+  line-height: 0.95;
   text-align: center;
   margin: 0;
   text-transform: uppercase;
-  color: #ffffff;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
 }
 
 /* Phase 2: Explosion Text */
@@ -60,24 +61,54 @@
 
 /* Phase 3: Fire Text */
 .fire-text {
-  background: linear-gradient(to bottom,
-      #ff4500 0%,
-      #ff8c00 30%,
-      #ffd700 50%,
-      #ff6347 70%,
-      #8b0000 100%);
+  /* Creating a rocky metallic texture with CSS gradients */
+  background:
+    radial-gradient(ellipse at center, rgba(255, 215, 0, 0.4) 0%, transparent 60%),
+    repeating-linear-gradient(45deg, #1a1a1a 0%, #2a2a2a 2%, #4a2000 3%, #1a1a1a 5%),
+    linear-gradient(to bottom, #ffe4b5 0%, #ff8c00 30%, #4a0000 70%, #111 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 
+  /* Intense fire glow and 3D bevel */
   text-shadow:
-    0 0 20px rgba(255, 69, 0, 0.8),
-    0 0 40px rgba(255, 140, 0, 0.6),
-    0 0 60px rgba(255, 215, 0, 0.4),
-    0 0 80px rgba(255, 99, 71, 0.3);
+    0 -2px 4px rgba(255, 200, 0, 0.5),
+    0 5px 15px rgba(255, 69, 0, 0.9),
+    0 -10px 30px rgba(255, 140, 0, 0.7),
+    0 10px 40px rgba(255, 30, 0, 0.8),
+    0 0 80px rgba(255, 69, 0, 0.6);
 
-  background-size: 100% 200%;
-  animation: fireGradient 2s ease-in-out infinite;
+  background-size: 200% 200%;
+  animation: fireGradient 3s ease-in-out infinite;
+  position: relative;
+}
+
+/* Ambient glow and smoke effect */
+.fire-text::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(255, 69, 0, 0.3) 0%, transparent 60%);
+  filter: blur(30px);
+  z-index: -1;
+  pointer-events: none;
+  animation: pulseGlow 2s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+  }
 }
 
 @keyframes fireGradient {
@@ -88,7 +119,7 @@
   }
 
   50% {
-    background-position: 0% 100%;
+    background-position: 100% 100%;
   }
 }
 
