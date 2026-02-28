@@ -16,7 +16,7 @@ const About = () => {
                         </div>
                         <div className="about-experience glass-card">
                             <h3>B.Tech Student</h3>
-                            <p>Amrita School of Engineering</p>
+                            <p>Amrita School of Engineering(Coimbatore)</p>
                             <p className="text-accent">Class of 2026</p>
                         </div>
                     </div>
