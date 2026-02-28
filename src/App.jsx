@@ -33,8 +33,9 @@ function App() {
 
   return (
     <>
-      <IntroAnimation onComplete={handleIntroComplete} audioConfig={audioConfig} isCompleted={!showIntro} />
-      {!showIntro && (
+      {showIntro ? (
+        <IntroAnimation onComplete={handleIntroComplete} audioConfig={audioConfig} />
+      ) : (
         <div className="app">
           <Navbar />
           <main>

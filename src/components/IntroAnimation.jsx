@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import './IntroAnimation.css';
 import introAudio from '../images/intro-sound.mp3';
 
-const IntroAnimation = ({ onComplete, audioConfig, isCompleted }) => {
+const IntroAnimation = ({ onComplete, audioConfig }) => {
     const [isFadingOut, setIsFadingOut] = useState(false);
     const [videoError, setVideoError] = useState(false);
     const [phase, setPhase] = useState(1);
@@ -25,7 +25,6 @@ const IntroAnimation = ({ onComplete, audioConfig, isCompleted }) => {
 
     // Video Autoplay Initialization 
     useEffect(() => {
-        if (isCompleted) return;
         if (!videoError && videoRef.current) {
             videoRef.current.currentTime = 0;
             videoRef.current.play().catch(error => {
@@ -33,7 +32,7 @@ const IntroAnimation = ({ onComplete, audioConfig, isCompleted }) => {
                 setVideoError(true);
             });
         }
-    }, [videoError, isCompleted]);
+    }, [videoError]);
 
     // Audio Initialization
     useEffect(() => {
@@ -56,7 +55,6 @@ const IntroAnimation = ({ onComplete, audioConfig, isCompleted }) => {
 
     // CSS Fallback logic sequence
     useEffect(() => {
-        if (isCompleted) return;
         if (videoError) {
             const timers = [
                 setTimeout(() => setPhase(2), 1500),
@@ -69,11 +67,10 @@ const IntroAnimation = ({ onComplete, audioConfig, isCompleted }) => {
             ];
             return () => timers.forEach(clearTimeout);
         }
-    }, [videoError, isCompleted]);
+    }, [videoError]);
 
     // CSS Fallback particles logic
     useEffect(() => {
-        if (isCompleted) return;
         if (videoError) {
             let newParticles = [];
             if (phase === 2) {
@@ -205,12 +202,6 @@ const IntroAnimation = ({ onComplete, audioConfig, isCompleted }) => {
             </button>
         </>
     );
-
-    // If Intro is already completed, just render the Audio & Toggle Button 
-    // seamlessly hanging out in the background of the app.
-    if (isCompleted) {
-        return <>{renderSharedUI()}</>;
-    }
 
     // Video render Native Mode
     if (!videoError) {
