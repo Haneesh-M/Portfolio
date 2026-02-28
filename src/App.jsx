@@ -17,6 +17,15 @@ function App() {
     return !sessionStorage.getItem('introShown');
   });
 
+  const audioConfig = {
+    enabled: true,
+    autoplay: true,
+    volume: 0.7,
+    continueInPortfolio: false, // Stop after intro
+    allowUserToggle: true,
+    respectSystemMute: true
+  };
+
   const handleIntroComplete = () => {
     sessionStorage.setItem('introShown', 'true');
     setShowIntro(false);
@@ -24,9 +33,8 @@ function App() {
 
   return (
     <>
-      {showIntro ? (
-        <IntroAnimation onComplete={handleIntroComplete} />
-      ) : (
+      <IntroAnimation onComplete={handleIntroComplete} audioConfig={audioConfig} isCompleted={!showIntro} />
+      {!showIntro && (
         <div className="app">
           <Navbar />
           <main>
