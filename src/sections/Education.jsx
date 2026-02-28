@@ -43,10 +43,10 @@ const EducationItem = ({ index, institution, degree, date, grade, location }) =>
 const Education = () => {
     const educationData = [
         {
-            institution: "Amrita School of Engineering",
+            institution: "Amrita School of Engineering(Coimbatore)",
             degree: "B.Tech - Computer Science and Engineering",
             date: "Sept 2022 – June 2026",
-            grade: "CGPA: 7.66",
+            grade: "CGPA: 7.68",
             location: "Ettimadai, Tamil Nadu"
         },
         {

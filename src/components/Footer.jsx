@@ -18,7 +18,7 @@ const Footer = () => {
                         <a href="#contact">Contact</a>
                     </div>
                     <div className="footer-badge">
-                        Built with ⚛️ React.js
+                        Built by ❤️ Markapudi Haneesh
                     </div>
                 </div>
             </div>
