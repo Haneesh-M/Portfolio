@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
+import profilePic from '../images/Navbar-Haneesh.jpg';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -21,9 +22,7 @@ const Navbar = () => {
         <header className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
             <div className="nav-container container">
                 <a href="#home" className="logo">
-                    {/* Replace with actual profile photo */}
-                    <div className="nav-profile-placeholder">H</div>
-                    {/* <img src="your-image.jpg" alt="Profile" className="nav-profile-pic" /> */}
+                    <img src={profilePic} alt="Profile" className="nav-profile-pic" />
                     <span className="logo-text">Haneesh</span>
                 </a>
 
@@ -44,7 +43,7 @@ const Navbar = () => {
                     <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle Theme">
                         {theme === 'light' ? '🌙' : '☀️'}
                     </button>
-                    <a href="#resume" className="btn-primary resume-btn">Resume</a>
+                    <a href="https://drive.google.com/file/d/1x4y_DHviq6NVK90ge3Q6FVtdBFCYHI0l/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn-primary resume-btn">Resume</a>
 
                     {/* Mobile Menu Toggle */}
                     <button
@@ -62,9 +61,7 @@ const Navbar = () => {
             {/* Mobile Drawer */}
             <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
                 <div className="mobile-header">
-                    {/* Replace with actual profile photo */}
-                    <div className="nav-profile-placeholder mobile">H</div>
-                    {/* <img src="your-image.jpg" alt="Profile" className="nav-profile-pic mobile" /> */}
+                    <img src={profilePic} alt="Profile" className="nav-profile-pic mobile" />
                     <span className="logo-text mobile-logo">Haneesh</span>
                 </div>
                 <ul className="mobile-links">

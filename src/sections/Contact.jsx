@@ -121,8 +121,8 @@ const Contact = () => {
                         </div>
 
                         <div className="social-links">
-                            <a href="#" className="social-btn">GitHub</a>
-                            <a href="#" className="social-btn">LinkedIn</a>
+                            <a href="https://github.com/Haneesh-M" className="social-btn">GitHub</a>
+                            <a href="https://www.linkedin.com/in/haneesh-markapudi-933b25287/" className="social-btn">LinkedIn</a>
                         </div>
                     </div>
 
