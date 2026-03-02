@@ -16,7 +16,7 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const navLinks = ['Home', 'About', 'Skills', 'Projects', 'Education', 'Certifications', 'Contact'];
+    const navLinks = ['Home', 'About', 'Skills', 'Projects', 'Education', 'Experience', 'Certifications', 'Contact'];
 
     return (
         <header className={`navbar ${isScrolled ? 'scrolled' : ''}`}>

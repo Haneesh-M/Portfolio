@@ -42,7 +42,7 @@ const Projects = () => {
             achievement: "40% faster queries",
             techStack: ["XAMPP", "MySQL", "Database Design"],
             image: floraDistImg,
-            github: "https://github.com/Haneesh-M",
+            github: "https://github.com/Haneesh-M/Flora-Distribition",
             demo: null,
             alignment: "left"
         },
@@ -66,7 +66,7 @@ const Projects = () => {
             achievement: "Real-time pathfinding",
             techStack: ["Python", "Dijkstra's", "Graph Algorithms", "3D Visualization"],
             image: droneImg,
-            github: "https://github.com/Haneesh-M",
+            github: "https://github.com/Haneesh-M/Drone-Simulation",
             demo: null,
             alignment: "left"
         },
@@ -79,7 +79,7 @@ const Projects = () => {
             techStack: ["React.js", "Node.js", "Express.js", "SQLite", "Tailwind CSS"],
             image: expenseSharingImg,
             github: "https://github.com/Haneesh-M/Expense-Sharing-Application",
-            demo: "https://drive.google.com/file/d/1pe_KZwUG95lUSGdf7fZLgJS020yAp5Sd/view?usp=drive_link",
+            demo: "https://expense-sharing-application-two.vercel.app/",
             alignment: "right"
         },
         {
@@ -102,7 +102,7 @@ const Projects = () => {
             achievement: "Responsive UI/UX workflows",
             techStack: ["HTML", "CSS", "JavaScript", "UI/UX Design"],
             image: hotelMngmtImg,
-            github: "https://github.com/Haneesh-M",
+            github: "https://github.com/Haneesh-M/Hotel-Management-System",
             demo: null,
             alignment: "right"
         }
