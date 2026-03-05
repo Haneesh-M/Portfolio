@@ -60,7 +60,7 @@ const Stats = () => {
         { limit: 10, title: "Projects Completed", suffix: "+" },
         { limit: 7, title: "Technologies", suffix: "+" },
         { limit: 5, title: "Certifications", suffix: "+" },
-        { limit: 7.66, title: "CGPA", suffix: "" }
+        { limit: 7.68, title: "CGPA", suffix: "" }
     ];
 
     return (

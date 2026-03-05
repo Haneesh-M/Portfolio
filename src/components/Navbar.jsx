@@ -16,7 +16,7 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const navLinks = ['Home', 'About', 'Skills', 'Projects', 'Education', 'Certifications', 'Contact'];
+    const navLinks = ['Home', 'About', 'Skills', 'Projects', 'Education', 'Experience', 'Certifications', 'Contact'];
 
     return (
         <header className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
@@ -43,7 +43,7 @@ const Navbar = () => {
                     <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle Theme">
                         {theme === 'light' ? '🌙' : '☀️'}
                     </button>
-                    <a href="https://drive.google.com/file/d/1x4y_DHviq6NVK90ge3Q6FVtdBFCYHI0l/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn-primary resume-btn">Resume</a>
+                    <a href="https://drive.google.com/file/d/1O4x89fysK8_nNPhUw6QpBtzXUuNaUdhA/view" target="_blank" rel="noopener noreferrer" className="btn-primary resume-btn">Resume</a>
 
                     {/* Mobile Menu Toggle */}
                     <button
