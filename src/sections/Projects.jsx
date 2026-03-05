@@ -6,6 +6,7 @@ import taskLedgerImg from '../images/Split Ledger.png';
 import floraDistImg from '../images/Flora Distribution.png';
 import droneImg from '../images/Drone.png';
 import hotelMngmtImg from '../images/Hotel management.png';
+import helmetdetImg from '../images/helmet detection.jpg';
 import './Projects.css';
 
 const Projects = () => {
@@ -17,7 +18,7 @@ const Projects = () => {
             description: "Built a two-stage object detection pipeline trained on 5,000-image dataset to identify helmets and improve workplace safety monitoring. Implemented color segmentation, edge detection, and regression-based classification.",
             achievement: "5000+ images trained",
             techStack: ["ML", "OpenCV", "Python", "Streamlit"],
-            image: "helmet-detection-placeholder.jpg", // Helmet detection still needs an image 
+            image: helmetdetImg, // Helmet detection still needs an image 
             github: "https://github.com/Haneesh-M",
             demo: null,
             alignment: "left"
